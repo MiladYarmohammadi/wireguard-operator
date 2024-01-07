@@ -81,7 +81,7 @@ func main() {
 		log.Info("Received a new state")
 		err := wg.Sync(state)
 		if err != nil {
-			log.Error(err, "Error while sycncing wireguard")
+			log.Error(err, "Error while syncing wireguard")
 		}
 
 		err = it.Sync(state)
