@@ -63,16 +63,16 @@ func GenerateIptableRulesFromNetworkPolicies(policies v1alpha1.EgressNetworkPoli
 
 	peerChain := strings.ReplaceAll(peerIp, ".", "-")
 
-	// create chain for peer
+	//Create a chain for peer
 	rules = append(rules, fmt.Sprintf(":%s - [0:0]", peerChain))
-	// associate peer chain to FORWARD chain
+	// Associate peer chain to the FORWARD chain
 	rules = append(rules, fmt.Sprintf("-A FORWARD -s %s -j %s", peerIp, peerChain))
 
-	// allow peer to ping (ICMP) wireguard server for debugging purposes
+	// Allow peer to ping (ICMP) wireguard server for debugging purposes
 	rules = append(rules, fmt.Sprintf("-A %s -d %s -p icmp -j ACCEPT", peerChain, wgServerIp))
-	// allow peer to communicate with itself
+	// Allow peer to communicate with itself
 	rules = append(rules, fmt.Sprintf("-A %s -d %s -j ACCEPT", peerChain, peerIp))
-	// allow peer to communicate with kube-dns
+	// Allow peer to communicate with kube-dns
 	rules = append(rules, fmt.Sprintf("-A %s -d %s -p UDP --dport 53 -j ACCEPT", peerChain, kubeDnsIp))
 
 	for _, policy := range policies {
@@ -81,7 +81,7 @@ func GenerateIptableRulesFromNetworkPolicies(policies v1alpha1.EgressNetworkPoli
 		}
 	}
 
-	// if policies are defined impose an implicit deny all
+	//If policies are defined impose an implicit denial of all
 	if len(policies) != 0 {
 		rules = append(rules, fmt.Sprintf("-A %s -j REJECT --reject-with icmp-port-unreachable", peerChain))
 	}
