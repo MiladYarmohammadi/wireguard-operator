@@ -1,4 +1,4 @@
-# permissions for end users to view wireguards.
+# Permissions for end users to view wireguards.
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
