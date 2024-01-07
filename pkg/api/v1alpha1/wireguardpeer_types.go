@@ -29,11 +29,11 @@ type Status struct {
 }
 
 // EDIT THIS FILE!  THIS IS SCAFFOLDING FOR YOU TO OWN!
-// NOTE: json tags are required.  Any new fields you add must have json tags for the fields to be serialized.
+// NOTE: JSON tags are required.  Any new fields you add must have JSON tags for the fields to be serialized.
 
 // WireguardPeerSpec defines the desired state of WireguardPeer
 type WireguardPeerSpec struct {
-	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
+	// INSERT ADDITIONAL SPEC FIELDS - desired state of the cluster
 	// Important: Run "make" to regenerate code after modifying this file
 	// The address of the peer.
 	Address string `json:"address,omitempty"`
@@ -91,7 +91,7 @@ type EgressNetworkPolicyTo struct {
 
 // WireguardPeerStatus defines the observed state of WireguardPeer
 type WireguardPeerStatus struct {
-	// INSERT ADDITIONAL STATUS FIELD - define observed state of cluster
+	// INSERT ADDITIONAL STATUS FIELD - define the observed state of the cluster
 	// Important: Run "make" to regenerate code after modifying this file
 	// A string field that contains the current configuration for the Wireguard peer.
 	Config string `json:"config,omitempty"`
