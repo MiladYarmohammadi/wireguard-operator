@@ -18,7 +18,7 @@ spec:
   - name: v1alpha1
     schema:
       openAPIV3Schema:
-        description: Wireguard is the Schema for the wireguards API
+        description: Wireguard is the Schema for the Wireguards API
         properties:
           apiVersion:
             description: 'APIVersion defines the versioned schema of this representation
@@ -47,7 +47,7 @@ spec:
               enableIpForwardOnPodInit:
                 description: A boolean field that specifies whether IP forwarding
                   should be enabled on the Wireguard VPN pod at startup. This can
-                  be useful to enable if the peers are having problems with sending
+                  be useful to enable peers who are having problems with sending
                   traffic to the internet.
                 type: boolean
               mtu:
@@ -62,7 +62,7 @@ spec:
               serviceAnnotations:
                 additionalProperties:
                   type: string
-                description: A map of key value strings for service annotations
+                description: A map of key-value strings for service annotations
                 type: object
               serviceType:
                 description: A field that specifies the type of Kubernetes service
