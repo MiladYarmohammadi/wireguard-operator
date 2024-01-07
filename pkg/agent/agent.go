@@ -22,28 +22,28 @@ type State struct {
 func isStateValid(state State) error {
 
 	if state.ServerPrivateKey == "" {
-		return fmt.Errorf("server private key is not defined")
+		return fmt.Errorf("Server private key is not defined")
 	}
 
 	if len(state.ServerPrivateKey) != 44 {
-		return fmt.Errorf("server private key should be of length 44")
+		return fmt.Errorf("Server private key should be of length 44")
 	}
 
 	if state.Server.Status.Address == "" {
-		return fmt.Errorf("server address is not defined")
+		return fmt.Errorf("Server address is not defined")
 	}
 
 	if state.Server.Status.Dns == "" {
-		return fmt.Errorf("dns is not defined")
+		return fmt.Errorf("DNS is not defined")
 	}
 
 	for i, peer := range state.Peers {
 		if peer.Spec.Address == "" {
-			return fmt.Errorf("peer with index %d does not have the address defined", i)
+			return fmt.Errorf("Peer with index %d does not have the address defined", i)
 		}
 
 		if peer.Spec.PublicKey == "" {
-			return fmt.Errorf("peer with index %d does not have a public key defined", i)
+			return fmt.Errorf("Peer with index %d does not have a public key defined", i)
 		}
 	}
 
@@ -113,7 +113,7 @@ func OnStateChange(path string, logger logr.Logger, onFileChange func(State)) (f
 				if !ok {
 					return
 				}
-				logger.Error(err, "watcher error")
+				logger.Error(err, "Watcher error")
 			}
 		}
 	}()
