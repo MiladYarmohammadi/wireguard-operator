@@ -60,7 +60,7 @@ spec:
                 - secretKeyRef
                 type: object
               address:
-                description: 'INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
+                description: 'INSERT ADDITIONAL SPEC FIELDS - desired state of the cluster
                   Important: Run "make" to regenerate code after modifying this file
                   The address of the peer.'
                 type: string
@@ -148,7 +148,7 @@ spec:
               of the peer.
             properties:
               config:
-                description: 'INSERT ADDITIONAL STATUS FIELD - define observed state
+                description: 'INSERT ADDITIONAL STATUS FIELD - define the observed state
                   of cluster Important: Run "make" to regenerate code after modifying
                   this file A string field that contains the current configuration
                   for the Wireguard peer.'
